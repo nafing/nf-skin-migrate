@@ -8,7 +8,7 @@ DB_Host="localhost"
 DB_Port="3306"
 DB_Name="qbcoreframework_39f588"
 ```
-Migrated DB is inserted in `nf-skins` and `nf-outfits`.
+The migrated DB is inserted into `nf-skins` and `nf-outfits`.
 
 ```sql
 CREATE TABLE IF NOT EXISTS `nf-outfits` (
