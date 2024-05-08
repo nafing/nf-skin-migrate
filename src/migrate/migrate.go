@@ -6,11 +6,13 @@ import (
 )
 
 func Migrate(activeSkin QBCoreSkin) ([]byte, []byte, EyeColor, []byte, []byte, []byte) {
+	fmt.Println(activeSkin.Face.Item, activeSkin.Face2.Item, activeSkin.Face.Texture, activeSkin.Face2.Texture)
+
 	headBlend := HeadBlend{
-		ShapeFirstID:  activeSkin.Face2.Item,
+		ShapeFirstID:  activeSkin.Face.Item,
 		ShapeSecondID: activeSkin.Face2.Item,
 		ShapeThirdID:  0,
-		SkinFirstID:   activeSkin.Face2.Texture,
+		SkinFirstID:   activeSkin.Face.Texture,
 		SkinSecondID:  activeSkin.Face2.Texture,
 		SkinThirdID:   0,
 		ShapeMix:      activeSkin.Facemix.ShapeMix,
@@ -46,7 +48,7 @@ func Migrate(activeSkin QBCoreSkin) ([]byte, []byte, EyeColor, []byte, []byte, [
 	ecM := EyeColor(activeSkin.EyeColor.Item)
 
 	HeadOverlay := HeadOverlay{
-		Blemishes:      []float64{-1, 0.5},
+		Blemishes:      []float64{-1, 1.0},
 		FacialHair:     []float64{activeSkin.Beard.Item, 1.0, activeSkin.Beard.Texture},
 		Eyebrows:       []float64{activeSkin.Eyebrows.Item, 1.0, activeSkin.Eyebrows.Texture},
 		Ageing:         []float64{activeSkin.Ageing.Item, 1.0, activeSkin.Ageing.Texture},
